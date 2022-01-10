@@ -1,0 +1,119 @@
+/* Global */
+:root {
+  /* Color */
+  --color-white: #ffffff;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 15px;
+
+  /* Annimation */
+  --animation-duration: 300ms;
+}
+
+/* Global Tag */
+body {
+  font-family: 'Yeon Sung', cursive;
+  margin: 0;
+  font-size: var(--font-regular);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  font-family: 'Yeon Sung', cursive;
+}
+
+/* Game Screen */
+#game-screen {
+  width: 800px;
+  height: 500px;
+  background-image: url('img/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: var(--size-border-radius);
+  margin: auto;
+}
+
+/* Sound Option */
+#sound {
+  position: inherit;
+  background-color: transparent;
+  color: brown;
+  font-size: var(--font-medium);
+  padding: 5px;
+  margin: 10px;
+  transition: all var(--animation-duration) ease-in;
+}
+
+#sound:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Start Page*/
+#main-page {
+  display: none;
+  /*display: flex;*/
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__title {
+  font-size: var(--font-large);
+  padding: 0 15px;
+  margin: 10px;
+  margin-bottom: 100px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: var(--size-border-radius);
+}
+
+.main__ui {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__ui button {
+  border: 2px solid black;
+  border-radius: var(--size-border-radius);
+  margin: 10px 0;
+  font-size: var(--font-medium);
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+/* Game Page */
+#game-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game__control-btn {
+  font-size: var(--font-regular);
+}
+
+.carrots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carrot {
+  width: fit-content;
+}

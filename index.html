@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrot Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/42764c1962.js"
       crossorigin="anonymous"
@@ -14,48 +21,50 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <i class="fas fa-music" id="sound" data-sound-status="on"></i>
-    <!-- toggle each page -->
-    <!-- start page -->
-    <section id="start_page" data-page-statue="on">
-      <div class="start__title">Catch Carrot</div>
-      <div class="start__ui">
-        <button class="start__play-btn">Game Start</button>
-        <button class="start__howto-btn">How To</button>
+    <section id="game-screen">
+      <i class="fas fa-music" id="sound" data-sound-status="on"></i>
+      <!-- toggle each page -->
+      <!-- start page -->
+      <div id="main-page" data-page-statue="on">
+        <div class="main__title">Pick Carrot</div>
+        <div class="main__ui">
+          <button class="main__play-btn">Game Start</button>
+          <button class="main__how-to-btn">How To</button>
+        </div>
       </div>
-    </section>
 
-    <!-- playing game page -->
-    <section id="game_page" data-page-statue="off">
-      <div class="game__control-btn">
-        <i class="fas fa-pause"></i>
-        <i class="fas fa-play"></i>
-      </div>
-      <div class="game__rule-ui">
-        <div class="time">time</div>
-        <div class="goal">curr/goal</div>
-      </div>
-      <div class="game__main">
-        <div class="carrots">
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
-          <img src="img/carrot.png" alt="carrot" class="carrot" />
+      <!-- playing game page -->
+      <div id="game-page" data-page-statue="off">
+        <div class="game__control-btn">
+          <i class="fas fa-pause pause-btn"></i>
+          <i class="fas fa-play play-btn"></i>
         </div>
-        <div class="bugs">
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
-          <img src="img/bug.png" alt="bug" class="bug" />
+        <div class="game__rule-ui">
+          <div class="time">time</div>
+          <div class="goal">curr/goal</div>
         </div>
-        <img src="img/spray.png" alt="spray" class="spray" />
+        <div class="game__main">
+          <div class="carrots">
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+            <img src="img/carrot.png" alt="carrot" class="carrot" />
+          </div>
+          <div class="bugs">
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+            <img src="img/bug.png" alt="bug" class="bug" />
+          </div>
+          <img src="img/spray.png" alt="spray" class="spray" />
+        </div>
       </div>
     </section>
   </body>
