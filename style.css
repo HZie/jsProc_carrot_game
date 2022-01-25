@@ -119,6 +119,15 @@ button {
   font-size: 20px;
   border: solid 2px black;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.game__control-btn i {
+  display: none;
+}
+
+.game__control-btn .active {
+  display: inline;
 }
 
 .time {
