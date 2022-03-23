@@ -4,29 +4,26 @@ const carrots = document.querySelectorAll('.carrot');
 let c_count = 0;
 let gameStatus = 'stopped';
 
+// locate carrots and add event listenr when clicked
 carrots.forEach((carrot) => {
-  const x = Math.random() * 90;
-  const y = Math.random() * 70;
-  carrot.style.left = `${x}%`;
-  carrot.style.top = `${y}%`;
   carrot.addEventListener('click', () => {
     console.log('carrot clicked');
   });
 });
 
+// locate bugs and add event listner when clicked
 const bugs = document.querySelectorAll('.bug');
 bugs.forEach((bug) => {
-  const x = Math.random() * 90;
-  const y = Math.random() * 70;
-  bug.style.left = `${x}%`;
-  bug.style.top = `${y}%`;
   bug.addEventListener('click', () => {
+    // only work when game is playing
     if (gameStatus === 'playing') {
       console.log('bug clicked');
     }
     // game over
   });
 });
+
+changePosition();
 
 const gameControlBtn = document.querySelector('.game__control-btn');
 const stop = document.querySelector('.fa-stop');
@@ -44,6 +41,7 @@ gameControlBtn.addEventListener('click', () => {
   }
 });
 
+// change carrots and bugs position randomly
 function changePosition() {
   carrots.forEach((carrot) => {
     const x = Math.random() * 90;
