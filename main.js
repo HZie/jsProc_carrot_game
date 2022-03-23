@@ -61,6 +61,7 @@ function changePosition() {
 const timer = document.querySelector('.time');
 const goal = document.querySelector('.goal');
 
+// process when game is started
 function startGame() {
   console.log('start game');
   startTimer();
@@ -69,6 +70,7 @@ function startGame() {
 
 let time;
 
+// initialize game
 function initGame() {
   console.log('init game');
   clearInterval(time);
@@ -77,6 +79,7 @@ function initGame() {
   gameStatus = 'stopped';
 }
 
+// start timer
 function startTimer() {
   let count = 10;
   time = setInterval(() => {
