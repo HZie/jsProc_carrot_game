@@ -164,4 +164,5 @@ button {
 .bug,
 .carrot {
   position: absolute;
+  cursor: pointer;
 }
