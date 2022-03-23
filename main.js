@@ -2,6 +2,7 @@
 
 const carrots = document.querySelectorAll('.carrot');
 let c_count = 0;
+let gameStatus = 'stopped';
 
 carrots.forEach((carrot) => {
   const x = Math.random() * 90;
@@ -20,7 +21,10 @@ bugs.forEach((bug) => {
   bug.style.left = `${x}%`;
   bug.style.top = `${y}%`;
   bug.addEventListener('click', () => {
-    console.log('bug clicked');
+    if (gameStatus === 'playing') {
+      console.log('bug clicked');
+    }
+    // game over
   });
 });
 
@@ -40,12 +44,29 @@ gameControlBtn.addEventListener('click', () => {
   }
 });
 
+function changePosition() {
+  carrots.forEach((carrot) => {
+    const x = Math.random() * 90;
+    const y = Math.random() * 70;
+    carrot.style.left = `${x}%`;
+    carrot.style.top = `${y}%`;
+  });
+
+  bugs.forEach((bug) => {
+    const x = Math.random() * 90;
+    const y = Math.random() * 70;
+    bug.style.left = `${x}%`;
+    bug.style.top = `${y}%`;
+  });
+}
+
 const timer = document.querySelector('.time');
 const goal = document.querySelector('.goal');
 
 function startGame() {
   console.log('start game');
   startTimer();
+  gameStatus = 'playing';
 }
 
 let time;
@@ -54,6 +75,8 @@ function initGame() {
   console.log('init game');
   clearInterval(time);
   timer.textContent = 10;
+  changePosition();
+  gameStatus = 'stopped';
 }
 
 function startTimer() {
