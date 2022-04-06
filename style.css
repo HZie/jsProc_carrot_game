@@ -168,6 +168,10 @@ button {
   cursor: pointer;
 }
 
+.carrot.inactive {
+  display: none;
+}
+
 .game-over-page {
   height: 70%;
   width: 70%;

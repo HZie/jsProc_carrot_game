@@ -2,12 +2,14 @@
 
 const carrots = document.querySelectorAll('.carrot');
 let c_count = 0;
+let goalCnt = 10;
 let gameStatus = 'stopped';
 
 // locate carrots and add event listenr when clicked
 carrots.forEach((carrot) => {
   carrot.addEventListener('click', () => {
     console.log('carrot clicked');
+    carrot.classList.toggle('inactive');
     c_count += 1;
     changeGoalTxt();
   });
@@ -65,8 +67,6 @@ function startGame() {
 }
 
 let time;
-let goalCnt = 10;
-let currCnt = 0;
 
 // initialize game
 function initGame() {
@@ -74,6 +74,8 @@ function initGame() {
   clearInterval(time);
   timer.textContent = 10;
   changePosition();
+  c_count = 0;
+  goalCnt = 10;
 }
 
 // start timer
@@ -118,7 +120,7 @@ toMainBtn.addEventListener('click', () => {
 // change goal text
 function changeGoalTxt() {
   // goalTxt 바꾸기
-  goalTxt.textContent = `${currCnt} / ${goalCnt}`;
+  goalTxt.textContent = `${c_count} / ${goalCnt}`;
 }
 
 // called when game is over
