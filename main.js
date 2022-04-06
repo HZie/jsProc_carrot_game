@@ -1,3 +1,11 @@
+/**
+ * ToDo:
+ * 1. fix error bug cannot be clicked
+ * 2. put game bgm
+ * 3. make game start page
+ * 4. make function to change spray and hand so that player can catch bug with spray and get carrot by hand
+ */
+
 'use strict';
 
 const carrots = document.querySelectorAll('.carrot');
