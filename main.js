@@ -77,6 +77,7 @@ function initGame() {
   timer.textContent = 10;
   changePosition();
   gameStatus = 'stopped';
+  toggleOverPage();
 }
 
 // start timer
@@ -90,3 +91,15 @@ function startTimer() {
     }
   }, 1000);
 }
+
+// game over page toggle
+const overPage = document.querySelector('.game-over-page');
+
+function toggleOverPage() {
+  overPage.classList.toggle('off-float');
+}
+
+const toMainBtn = document.querySelector('.over__main-btn');
+toMainBtn.addEventListener('click', () => {
+  toggleOverPage();
+});

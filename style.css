@@ -168,7 +168,7 @@ button {
   cursor: pointer;
 }
 
-.float {
+.game-over-page {
   height: 70%;
   width: 70%;
   background-color: var(--color-transparend-grey);
@@ -182,7 +182,8 @@ button {
 }
 
 .over__text {
-  margin: 20px;
+  margin-top: 20%;
+  margin-bottom: 10px;
 }
 .over__main-btn {
   padding: 5px 10px;
@@ -191,4 +192,8 @@ button {
   border: solid 2px var(--color-white);
   border-radius: 10px;
   cursor: pointer;
+}
+
+.off-float {
+  display: none;
 }
