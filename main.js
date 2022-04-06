@@ -8,6 +8,8 @@ let gameStatus = 'stopped';
 carrots.forEach((carrot) => {
   carrot.addEventListener('click', () => {
     console.log('carrot clicked');
+    c_count += 1;
+    changeGoalTxt();
   });
 });
 
@@ -18,6 +20,7 @@ bugs.forEach((bug) => {
     // only work when game is playing
     if (gameStatus === 'playing') {
       console.log('bug clicked');
+      gameOver();
     }
     // game over
   });
@@ -30,15 +33,7 @@ const stop = document.querySelector('.fa-stop');
 const play = document.querySelector('.fa-play');
 
 gameControlBtn.addEventListener('click', () => {
-  stop.classList.toggle('active');
-  play.classList.toggle('active');
-
-  // when pressed play button
-  if (stop.classList.contains('active')) {
-    startGame();
-  } else {
-    initGame();
-  }
+  playStopBtn();
 });
 
 // change carrots and bugs position randomly
@@ -59,16 +54,19 @@ function changePosition() {
 }
 
 const timer = document.querySelector('.time');
-const goal = document.querySelector('.goal');
+const goalTxt = document.querySelector('.goal');
 
 // process when game is started
 function startGame() {
   console.log('start game');
   startTimer();
   gameStatus = 'playing';
+  changeGoalTxt();
 }
 
 let time;
+let goalCnt = 10;
+let currCnt = 0;
 
 // initialize game
 function initGame() {
@@ -76,8 +74,6 @@ function initGame() {
   clearInterval(time);
   timer.textContent = 10;
   changePosition();
-  gameStatus = 'stopped';
-  toggleOverPage();
 }
 
 // start timer
@@ -92,6 +88,19 @@ function startTimer() {
   }, 1000);
 }
 
+// play/stop button function
+function playStopBtn() {
+  stop.classList.toggle('active');
+  play.classList.toggle('active');
+
+  // when pressed play button
+  if (stop.classList.contains('active')) {
+    startGame();
+  } else {
+    initGame();
+  }
+}
+
 // game over page toggle
 const overPage = document.querySelector('.game-over-page');
 
@@ -99,7 +108,21 @@ function toggleOverPage() {
   overPage.classList.toggle('off-float');
 }
 
+// to main button
 const toMainBtn = document.querySelector('.over__main-btn');
 toMainBtn.addEventListener('click', () => {
   toggleOverPage();
+  initGame();
 });
+
+// change goal text
+function changeGoalTxt() {
+  // goalTxt 바꾸기
+  goalTxt.textContent = `${currCnt} / ${goalCnt}`;
+}
+
+// called when game is over
+function gameOver() {
+  toggleOverPage();
+  playStopBtn();
+}
