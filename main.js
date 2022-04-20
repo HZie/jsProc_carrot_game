@@ -53,6 +53,8 @@ function changePosition() {
     const y = Math.random() * 70;
     carrot.style.left = `${x}%`;
     carrot.style.top = `${y}%`;
+    if (carrot.classList.contains('inactive'))
+      carrot.classList.remove('inactive');
   });
 
   bugs.forEach((bug) => {
@@ -92,7 +94,7 @@ function startTimer() {
   time = setInterval(() => {
     count--;
     timer.textContent = `${count}`;
-    if (count === 0) {
+    if (count === 0 || c_count == goalCnt) {
       clearInterval(time);
     }
   }, 1000);

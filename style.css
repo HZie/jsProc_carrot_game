@@ -153,8 +153,7 @@ button {
   border-radius: 10px;
 }
 
-.bugs,
-.carrots {
+.object-screen {
   height: 50%;
   width: 100%;
   top: 50%;
