@@ -20,6 +20,9 @@ carrots.forEach((carrot) => {
     carrot.classList.toggle('inactive');
     c_count += 1;
     changeGoalTxt();
+    if (c_count == goalCnt) {
+      gameOver();
+    }
   });
 });
 
@@ -94,7 +97,7 @@ function startTimer() {
   time = setInterval(() => {
     count--;
     timer.textContent = `${count}`;
-    if (count === 0 || c_count == goalCnt) {
+    if (count === 0) {
       clearInterval(time);
     }
   }, 1000);
