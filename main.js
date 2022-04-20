@@ -12,16 +12,32 @@ const carrots = document.querySelectorAll('.carrot');
 let c_count = 0;
 let goalCnt = 10;
 let gameStatus = 'stopped';
+let soundStatus = 'playing';
+
+// audio
+const carrotSound = new Audio('/sound/carrot_pull.mp3');
+const bgm = new Audio('/sound/bg.mp3');
+const bugSound = new Audio('/sound/bug_pull.mp3');
+const gameWinSound = new Audio('/sound/game_win.mp3');
+const buttonSound = new Audio('/sound/alert.wav');
+
+bgm.play();
+bgm.loop = true;
 
 // locate carrots and add event listenr when clicked
 carrots.forEach((carrot) => {
   carrot.addEventListener('click', () => {
-    console.log('carrot clicked');
-    carrot.classList.toggle('inactive');
-    c_count += 1;
-    changeGoalTxt();
-    if (c_count == goalCnt) {
-      gameOver();
+    // only work when game is playing
+    if (gameStatus === 'playing') {
+      console.log('carrot clicked');
+      carrot.classList.toggle('inactive');
+      c_count += 1;
+      changeGoalTxt();
+      carrotSound.play();
+      if (c_count == goalCnt) {
+        gameOver();
+        gameWinSound.play();
+      }
     }
   });
 });
@@ -33,6 +49,7 @@ bugs.forEach((bug) => {
     // only work when game is playing
     if (gameStatus === 'playing') {
       console.log('bug clicked');
+      bugSound.play();
       gameOver();
     }
     // game over
@@ -47,6 +64,7 @@ const play = document.querySelector('.fa-play');
 
 gameControlBtn.addEventListener('click', () => {
   playStopBtn();
+  buttonSound.play();
 });
 
 // change carrots and bugs position randomly
@@ -107,6 +125,7 @@ function startTimer() {
 function playStopBtn() {
   stop.classList.toggle('active');
   play.classList.toggle('active');
+  buttonSound.play();
 
   // when pressed play button
   if (stop.classList.contains('active')) {
@@ -128,6 +147,7 @@ const toMainBtn = document.querySelector('.over__main-btn');
 toMainBtn.addEventListener('click', () => {
   toggleOverPage();
   initGame();
+  buttonSound.play();
 });
 
 // change goal text
@@ -139,5 +159,25 @@ function changeGoalTxt() {
 // called when game is over
 function gameOver() {
   toggleOverPage();
-  playStopBtn();
+
+  stop.classList.toggle('active');
+  play.classList.toggle('active');
+  if (stop.classList.contains('active')) {
+    startGame();
+  } else {
+    initGame();
+  }
 }
+
+const soundOnOffBtn = document.querySelector('#sound');
+
+soundOnOffBtn.addEventListener('click', () => {
+  buttonSound.play();
+  if (soundStatus === 'playing') {
+    bgm.pause();
+    soundStatus = 'paused';
+  } else {
+    bgm.play();
+    soundStatus = 'playing';
+  }
+});
