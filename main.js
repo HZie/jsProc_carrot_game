@@ -101,8 +101,8 @@ let time;
 function initGame() {
   console.log('init game');
   clearInterval(time);
-  timer.textContent = 10;
   changePosition();
+  timer.textContent = 10;
   c_count = 0;
   goalCnt = 10;
 }
